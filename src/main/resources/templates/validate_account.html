@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Validate Accounts</title>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <style>
+      .slider .indicators .indicator-item.active {
+        background-color: #dd2c00 !important;
+      }
+
+      .btn-login {
+        color: #dd2c00;
+        background-color: white;
+      }
+      .btn-login:hover {
+        color: white;
+        background-color: #dd2c00;
+      }
+      .login-box {
+        height: 100%;
+      }
+      [type="checkbox"]:checked+span:not(.lever):before {
+        border-right: 2px solid #dd2c00;
+        border-bottom: 2px solid #dd2c00;
+       }
+    </style>
+</head>
+<body>
+<!-- Navbar goes here -->
+<div class="row">
+    <nav th:replace="/fragments/header :: header"></nav>
+</div>
+<div class="row">
+    <form action="#" th:action="@{/validate/account}" th:object="${usernameList}" method="post">
+        <div class="container">
+            <table class="highlight centered">
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Username</th>
+                    <th>Valida</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.surname}"></td>
+                    <td th:text="${user.username}"></td>
+                    <td>
+                        <label>
+                            <input type="checkbox" th:value="${user.username}" name="multiUsernameSelected" />
+                            <span></span>
+                        </label>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+            <div class="center-align">
+                <button
+                        class="btn btn-large waves-effect waves-light deep-orange accent-4"
+                        type="submit"
+                        name="action"
+                >
+                    Valida
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+</form>
+</div>
+<!-- Compiled and minified JavaScript -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

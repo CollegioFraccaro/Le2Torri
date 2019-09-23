@@ -1,0 +1,154 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+    <style>
+      .slider .indicators .indicator-item.active {
+        background-color: #dd2c00 !important;
+      }
+
+      .btn-login {
+        color: #dd2c00;
+        background-color: white;
+      }
+      .btn-login:hover {
+        color: white;
+        background-color: #dd2c00;
+      }
+      .login-box {
+        height: 100%;
+      }
+      input[type="email"]:not(.browser-default):focus:not([readonly]) {
+        border-bottom: 1px solid #dd2c00;
+        box-shadow: 0 1px 0 0 #dd2c00;
+      }
+      input[type="password"]:not(.browser-default):focus:not([readonly]) {
+        border-bottom: 1px solid #dd2c00;
+        box-shadow: 0 1px 0 0 #dd2c00;
+      }
+      input[type="text"]:not(.browser-default):focus:not([readonly]) {
+        border-bottom: 1px solid #dd2c00;
+        box-shadow: 0 1px 0 0 #dd2c00;
+      }
+      .input-field .prefix.active {
+        color: #dd2c00;
+      }
+      .footer-login {
+        margin-bottom: 0px;
+        margin-top: 0px;
+      }
+              .card-error {
+        background-color: #dd2c00;
+        color: white;
+      }
+
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<!-- Navbar goes here -->
+<div class="row">
+    <nav th:replace="/fragments/header :: header"></nav>
+</div>
+
+<div class="container">
+    <div class="valign-wrapper row">
+        <div class="col card hoverable s10 pull-s1 m8 pull-m2 l6 pull-l3">
+            <form method="POST" th:action="@{/register}" id="registerForm" th:object="${registrationForm}" >
+                <div class="card-content">
+                    <span class="card-title center-align">Registrati</span>
+
+                    <div id="errorMessage" class="card-panel card-error" th:if="${#fields.hasAnyErrors()}">
+                            <span class="card-title center-align">
+                              <i class="material-icons prefix input-logo">error</i>
+                                Errore registrazione</span>
+                        <p th:each="err : ${#fields.allErrors()}" th:text="${err}"></p>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix input-logo">mail_outline</i>
+                            <label for="email">Inidirizzo mail</label>
+                            <input type="email" class="validate" th:field="*{email}" id="email"/>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix input-logo">assignment_ind</i>
+                            <label for="name">Nome</label>
+                            <input id="name" type="text" class="validate" th:field="*{name}">
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix input-logo">assignment_ind</i>
+                            <label for="surname">Surname</label>
+                            <input id="surname" type="text" class="validate" th:field="*{surname}">
+                        </div>
+                      <div class="input-field col s12">
+                        <i class="material-icons prefix input-logo">person_pin</i>
+                        <label for="avatar">Soprannome</label>
+                        <input id="avatar" type="text" class="validate" th:field="*{avatar}">
+                      </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">lock_outline</i>
+                            <label for="password">Password </label>
+                            <input
+                                    type="password"
+                                    class="validate input-color"
+                                    th:field="*{password}"
+                                    id="password"
+                            />
+                        </div>
+                      <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <label for="repeatPassword">Ripeti password </label>
+                        <input
+                                type="password"
+                                class="validate input-color"
+                                name="repeatPassword"
+                                id="repeatPassword"
+                        />
+                      </div>
+                    </div>
+                </div>
+                <div class="card-action center-align">
+                    <button
+                            class="btn btn-large waves-effect waves-light deep-orange accent-4"
+                            type="submit"
+                            name="action"
+                    >
+                        Registrati
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+                <div class="row footer-login">
+                    <div class="input-field col s12 m12 l12 footer-login">
+                        <p class="margin center-align medium-small">Sei gi&agrave; registrato? <a th:href="@{/login}">Effettua login</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Compiled and minified JavaScript -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var elems = document.querySelectorAll(".slider");
+        var instances = M.Slider.init(elems, options);
+      });
+
+      // Or with jQuery
+      $(document).ready(function() {
+        $(".slider").slider({ full_width: true });
+      });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+    <style>
+      .slider .indicators .indicator-item.active {
+        background-color: #dd2c00 !important;
+      }
+
+      .btn-login {
+        color: #dd2c00;
+        background-color: white;
+      }
+      .btn-login:hover {
+        color: white;
+        background-color: #dd2c00;
+      }
+      .login-box {
+        height: 100%;
+      }
+      input[type="email"]:not(.browser-default):focus:not([readonly]) {
+        border-bottom: 1px solid #dd2c00;
+        box-shadow: 0 1px 0 0 #dd2c00;
+      }
+      input[type="password"]:not(.browser-default):focus:not([readonly]) {
+        border-bottom: 1px solid #dd2c00;
+        box-shadow: 0 1px 0 0 #dd2c00;
+      }
+      .input-field .prefix.active {
+        color: #dd2c00;
+      }
+      .footer-login {
+        margin-bottom: 0px;
+        margin-top: 0px;
+      }
+      .card-error {
+        background-color: #dd2c00;
+        color: white;
+      }
+       .success-message {
+        color: #00c853;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Navbar goes here -->
+<div class="row">
+    <nav th:replace="/fragments/header :: header"></nav>
+</div>
+
+<div class="container">
+    <div class="valign-wrapper row">
+        <div class="col card hoverable s10 pull-s1 m8 pull-m2 l6 pull-l3">
+            <form method="POST" th:action="@{/login}" id="loginForm">
+                <div class="card-content">
+                    <span class="card-title center-align">Login</span>
+
+
+                        <div id="errorMessage" class="card-panel card-error" th:if="${loginError}">
+                            <span class="card-title center-align">
+                              <i class="material-icons prefix input-logo">error</i>
+                                Invalid credentials</span>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix input-logo">mail_outline</i>
+                                <label for="username">Email address</label>
+                                <input type="text" class="validate" name="username" id="username"/>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">lock_outline</i>
+                                <label for="password">Password </label>
+                                <input
+                                        type="password"
+                                        class="validate input-color"
+                                        name="password"
+                                        id="password"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action center-align">
+                        <button
+                                class="btn btn-large waves-effect waves-light deep-orange accent-4"
+                                type="submit"
+                                name="action"
+                        >
+                            Login
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                    <div class="row footer-login">
+                        <div class="input-field col s6 m6 l6 footer-login">
+                            <p class="margin medium-small"><a th:href="@{/register}">Register Now!</a></p>
+                        </div>
+                        <div class="input-field col s6 m6 l6 footer-login">
+                            <p class="margin right-align medium-small"><a href="#">Forgot password?</a></p>
+                        </div>
+                    </div>
+                <!-- Modal Structure -->
+                <div th:if="${registerSuccess != null}" id="modal" class="modal">
+                    <div class="modal-content">
+                        <h4 class="center-align success-message">Registrazione avvenuta con successo</h4>
+                        <p class="center-align">Il tuo account verrà attivato entro 24 ore dall'admin, se risulterai un vero fraccarotto!</p>
+                    </div>
+                    <div class="modal-footer" style="text-align: center;">
+                        <a href="#!" class="modal-close btn waves-effect waves-light green accent-4">Ok ho capito</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Compiled and minified JavaScript -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var elems = document.querySelectorAll(".slider");
+        var instances = M.Slider.init(elems, options);
+      });
+
+      // Or with jQuery
+      $(document).ready(function() {
+        $(".slider").slider({ full_width: true });
+      });
+
+        $(document).ready(function(){
+    $('#modal').modal();
+    $('#modal').modal('open');
+ });
+</script>
+</body>
+</html>
