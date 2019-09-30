@@ -5,10 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -30,8 +27,13 @@ public class User implements UserDetails {
   private boolean enable;
   private String role;
 
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "user_information")
+  private UserInformation userInformation;
+
   public User(String username, String password, String avatar,
-              String name, String surname, String email, boolean enable, String role) {
+              String name, String surname, String email, boolean enable,
+              String role, UserInformation userInformation) {
     this.username = username;
     this.password = password;
     this.avatar = avatar;
@@ -40,6 +42,7 @@ public class User implements UserDetails {
     this.email = email;
     this.enable = enable;
     this.role = role;
+    this.userInformation = userInformation;
   }
 
   public User() {
@@ -63,6 +66,14 @@ public class User implements UserDetails {
 
   public String getEmail() {
     return email;
+  }
+
+  public UserInformation getUserInformation() {
+    return userInformation;
+  }
+
+  public void setUserInformation(UserInformation userInformation) {
+    this.userInformation = userInformation;
   }
 
   public void setEnable(boolean enable) {

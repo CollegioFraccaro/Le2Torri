@@ -12,9 +12,11 @@ public class RegistrationForm {
 
   private String username;
   @NotBlank(message = "password non deve essere vuota")
-  @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$",
+  @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$",
     message = "La password deve contenere almeno una lettere maiuscola, una lettera maiuscola, un numero e lunga almeno 8 caratteri")
   private String password;
+  @NotBlank(message = "digitare nuovamente la password nel campo ripeti password")
+  private String repeatPassword;
   @NotBlank(message = "avatar non deve essere vuoto")
   @Size(max = 30, message = "Il numero massimo di caratteri consentito per l'avatar 30")
   private String avatar;
@@ -27,13 +29,14 @@ public class RegistrationForm {
   @Email(message = "Email should be valid")
   private String email;
 
-  public RegistrationForm(String username, String password, String avatar, String name, String surname, String email) {
+  public RegistrationForm(String username, String password, String avatar, String name, String surname, String email, String repeatPassword) {
     this.username = email;
     this.password = password;
     this.avatar = avatar;
     this.name = name;
     this.surname = surname;
     this.email = email;
+    this.repeatPassword = repeatPassword;
   }
 
   public RegistrationForm() {
@@ -87,8 +90,16 @@ public class RegistrationForm {
     this.email = email;
   }
 
+  public String getRepeatPassword() {
+    return repeatPassword;
+  }
+
+  public void setRepeatPassword(String repeatPassword) {
+    this.repeatPassword = repeatPassword;
+  }
+
   public User toUser(PasswordEncoder passwordEncoder) {
-    return new User(email, passwordEncoder.encode(password), avatar, name, surname, email, false, "USER");
+    return new User(email, passwordEncoder.encode(password), avatar, name, surname, email, false, "USER", new UserInformation());
   }
 
   @Override

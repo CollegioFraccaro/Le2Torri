@@ -44,6 +44,11 @@ public class RegistrationController {
       redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.registrationForm", result);
       redirectAttributes.addFlashAttribute("registrationForm", registrationForm);
       return "redirect:/register";
+    } else if (!registrationForm.getPassword().equals(registrationForm.getRepeatPassword())) {
+      result.rejectValue("repeatPassword", "error.user", "Le password devono essere uguali");
+      redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.registrationForm", result);
+      redirectAttributes.addFlashAttribute("registrationForm", registrationForm);
+      return "redirect:/register";
     }
 
     userRepository.save(registrationForm.toUser(passwordEncoder));

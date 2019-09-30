@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 @Configuration
 @EnableWebSecurity
@@ -22,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   final String[] PATH_PERMITTED = new String[] {
           "/", "/index.html", "/index",
           "/resources/**", "/images/**", "/static/**",
-          "/register"
+          "/register", "/info", "/user/**"
   };
 
   @Bean
@@ -58,5 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf().disable();
 
   }
+
+
 
 }
