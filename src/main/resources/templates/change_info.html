@@ -61,10 +61,10 @@
                     <span class="card-title center-align">Cambia la mail</span>
 
 
-                    <div id="errorMessage" class="card-panel card-error" th:if="${loginError}">
-                            <span class="card-title center-align">
+                    <div id="errorMessage" class="card-panel card-error" th:if="${valueError}">
+                            <span class="card-title center-align" th:text="${valueError}">
                               <i class="material-icons prefix input-logo">error</i>
-                                Invalid credentials</span>
+                            </span>
                     </div>
 
                     <div class="row">
