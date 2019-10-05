@@ -38,8 +38,8 @@
         margin-top: 0px;
       }
       .card-error {
-        background-color: #dd2c00;
-        color: white;
+        background-color: #dd2c00 !important;
+        color: white !important;
       }
        .success-message {
         color: #00c853;
@@ -58,7 +58,7 @@
         <div class="col card hoverable s10 pull-s1 m8 pull-m2 l6 pull-l3">
             <form method="POST" th:action="@{/login}" id="loginForm">
                 <div class="card-content">
-                    <span class="card-title center-align">Login</span>
+                    <span class="card-title center-align">Accedi</span>
 
 
                         <div id="errorMessage" class="card-panel card-error" th:if="${loginError}">
@@ -70,7 +70,7 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix input-logo">mail_outline</i>
-                                <label for="username">Email address</label>
+                                <label for="username">Indirizzo email</label>
                                 <input type="text" class="validate" name="username" id="username"/>
                             </div>
                             <div class="input-field col s12">
@@ -91,16 +91,16 @@
                                 type="submit"
                                 name="action"
                         >
-                            Login
+                            Accedi
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
                     <div class="row footer-login">
                         <div class="input-field col s6 m6 l6 footer-login">
-                            <p class="margin medium-small"><a th:href="@{/register}">Register Now!</a></p>
+                            <p class="margin medium-small"><a th:href="@{/register}">Registrati ora!</a></p>
                         </div>
                         <div class="input-field col s6 m6 l6 footer-login">
-                            <p class="margin right-align medium-small"><a href="#">Forgot password?</a></p>
+                            <p class="margin right-align medium-small"><a href="#">Password dimenticata?</a></p>
                         </div>
                     </div>
                 <!-- Modal Structure -->

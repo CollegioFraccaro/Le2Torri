@@ -3,7 +3,6 @@ package com.le2t.prod.user.controller;
 import com.le2t.prod.authentication.model.User;
 import com.le2t.prod.authentication.repository.UserRepository;
 import com.le2t.prod.user.controller.model.SingleInfo;
-import com.le2t.prod.user.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;

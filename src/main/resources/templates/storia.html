@@ -1,0 +1,52 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+    />
+
+    <style>
+      .slider .indicators .indicator-item.active {
+        background-color: #dd2c00 !important;
+      }
+
+      .btn-login {
+        color: #dd2c00;
+        background-color: white;
+      }
+      .btn-login:hover {
+        color: white;
+        background-color: #dd2c00;
+      }
+      .main-text {
+        color: #dd2c00;
+        margin-top: 20%;
+      }
+
+    </style>
+</head>
+
+<body>
+<!-- Navbar goes here -->
+<div class="row">
+    <nav th:replace="/fragments/header :: header"></nav>
+</div>
+<div class="container">
+    <h1 class="center-align main-text">Pagina in costruzione</h1>
+    <div class="center-align">
+        <a
+                class="btn btn-large waves-effect waves-light deep-orange accent-4 pulse"
+                name="action"
+                th:href="@{/}"
+        >
+            Torna alla home
+            <i class="material-icons right">home</i>
+        </a>
+    </div>
+</div>
+</body>
+</html>

@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -21,9 +21,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   private UserDetailsService userDetailsService;
 
   final String[] PATH_PERMITTED = new String[] {
-          "/", "/index.html", "/index",
+          "/", "/index.html", "/index", "/storia",
           "/resources/**", "/images/**", "/static/**",
-          "/register", "/info", "/user/**"
+          "/register", "/info"
+  };
+
+  final String[] PATH_AUTHENTICATED = new String[] {
+          "/login", "/register", "/index", "/loginError",
+          "/calendar", "/validate/**", "/user/**"
   };
 
   @Bean
@@ -45,18 +50,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .formLogin()
             .loginPage("/login")
             .failureUrl("/loginError")
+
             .and()
             .logout()
+            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
             .logoutSuccessUrl("/")
-            .and()
 
+            .and()
             .authorizeRequests()
             .antMatchers(PATH_PERMITTED).permitAll()
-            .antMatchers(HttpMethod.GET,"/login", "/register", "/index", "/loginError").permitAll()
-//            .antMatchers("/validate/**").permitAll()//.hasAuthority("ROLE_ADMIN")
-            .anyRequest().authenticated()
-            .and()
-            .csrf().disable();
+            .antMatchers(HttpMethod.GET, PATH_AUTHENTICATED).permitAll()
+            .antMatchers("/validate/**").hasAuthority("ROLE_ADMIN")
+            .anyRequest().authenticated();
 
   }
 

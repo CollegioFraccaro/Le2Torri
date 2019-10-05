@@ -7,10 +7,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 
     <style>
+    input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+        border-bottom: #dd2c00 !important;
+        box-shadow: #dd2c00 !important;
+    }
       .slider .indicators .indicator-item.active {
         background-color: #dd2c00 !important;
       }
-
       .btn-login {
         color: #dd2c00;
         background-color: white;
@@ -23,18 +26,18 @@
         height: 100%;
       }
       input[type="email"]:not(.browser-default):focus:not([readonly]) {
-        border-bottom: 1px solid #dd2c00;
-        box-shadow: 0 1px 0 0 #dd2c00;
+        border-bottom: 1px solid #dd2c00 !important;
+        box-shadow: 0 1px 0 0 #dd2c00 !important;
       }
       input[type="password"]:not(.browser-default):focus:not([readonly]) {
-        border-bottom: 1px solid #dd2c00;
-        box-shadow: 0 1px 0 0 #dd2c00;
+        border-bottom: 1px solid #dd2c00 !important;
+        box-shadow: 0 1px 0 0 #dd2c00 !important;
       }
       input[type="text"]:not(.browser-default):focus:not([readonly]) {
-        border-bottom: 1px solid #dd2c00;
-        box-shadow: 0 1px 0 0 #dd2c00;
+        border-bottom: 1px solid #dd2c00 !important;
+        box-shadow: 0 1px 0 0 #dd2c00 !important;
       }
-      .input-field .prefix.active {
+      .input-field .prefix:active {
         color: #dd2c00;
       }
       .footer-login {
@@ -42,8 +45,8 @@
         margin-top: 0px;
       }
               .card-error {
-        background-color: #dd2c00;
-        color: white;
+        background-color: #dd2c00 !important;
+        color: white !important;
       }
 
     </style>
@@ -83,7 +86,7 @@
                         </div>
                         <div class="input-field col s12">
                             <i class="material-icons prefix input-logo">assignment_ind</i>
-                            <label for="surname">Surname</label>
+                            <label for="surname">Cognome</label>
                             <input id="surname" type="text" class="validate" th:field="*{surname}">
                         </div>
                       <div class="input-field col s12">
