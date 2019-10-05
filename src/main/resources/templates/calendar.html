@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <style>
+        @media screen and (max-width: 660px) {
+            .calendar-small {
+                display: inline;
+            }
+            .calendar-big {
+                display: none;
+            }
+        }
+        @media screen and (min-width: 660px) {
+            .calendar-small {
+                display: none;
+            }
+            .calendar-big {
+                display: inline;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+</body>
+<!-- Navbar goes here -->
+<div class="row">
+    <nav th:replace="/fragments/header :: header"></nav>
+</div>
+<div class="row">
+    <div class="container">
+        <iframe class="calendar-big"
+                src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23dd2c00&amp;ctz=Europe%2FRome&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=aXQuaXRhbGlhbiNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%2333B679&amp;color=%230B8043&amp;title=Eventi%20Fraccaro&amp;showPrint=0&amp;showTitle=0"
+                style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+
+        <iframe class="calendar-small" src="https://calendar.google.com/calendar/embed?height=500&amp;wkst=1&amp;bgcolor=%23dd2c00&amp;ctz=Europe%2FRome&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=aXQuaXRhbGlhbiNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%2333B679&amp;color=%230B8043&amp;title=Eventi%20Fraccaro&amp;showPrint=0&amp;showTitle=0" style="border-width:0" width="460" height="500" frameborder="0" scrolling="no"></iframe>
+    </div>
+</div>
+</html>
