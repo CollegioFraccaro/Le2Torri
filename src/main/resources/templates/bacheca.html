@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bacheca</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <style>
+        @media screen and (max-width: 660px) {
+            .calendar-small {
+                display: inline;
+            }
+            .calendar-big {
+                display: none;
+            }
+        }
+        @media screen and (min-width: 660px) {
+            .calendar-small {
+                display: none;
+            }
+            .calendar-big {
+                display: inline;
+            }
+        }
+
+        #write-post {
+            font-size: 2.28rem;
+            line-height: 110%;
+            margin: 0.52rem 0 .912rem 0;
+            color: #dd2c00;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+</body>
+<!-- Navbar goes here -->
+<div class="row">
+    <nav th:replace="/fragments/header :: header"></nav>
+</div>
+<div class="container">
+    <div class="row" style="margin-top:5%;">
+        <div class="col">
+            <a class="btn-floating btn-large waves-effect waves-light deep-orange accent-4"><i class="material-icons">add</i></a>
+        </div>
+        <div class="col" style="margin-left: 5%;"><p id="write-post">Scrivi un post</p></div>
+    </div>
+</div>
+</html>
