@@ -1,0 +1,105 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="../../static/css/materialize.min.css"
+          th:href="@{/css/materialize.min.css}" media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+      .slider .indicators .indicator-item.active {
+        background-color: #dd2c00 !important;
+      }
+
+      .btn-login {
+        color: #dd2c00;
+        background-color: white;
+      }
+      .btn-login:hover {
+        color: white;
+        background-color: #dd2c00;
+      }
+      .login-box {
+        height: 100%;
+      }
+      input[type="email"]:not(.browser-default):focus:not([readonly]) {
+        border-bottom: 1px solid #dd2c00;
+        box-shadow: 0 1px 0 0 #dd2c00;
+      }
+      input[type="password"]:not(.browser-default):focus:not([readonly]) {
+        border-bottom: 1px solid #dd2c00;
+        box-shadow: 0 1px 0 0 #dd2c00;
+      }
+      .input-field .prefix.active {
+        color: #dd2c00;
+      }
+      .footer-login {
+        margin-bottom: 0px;
+        margin-top: 0px;
+      }
+      .card-error {
+        background-color: #dd2c00 !important;
+        color: white !important;
+      }
+       .success-message {
+        color: #00c853;
+        }
+
+    </style>
+</head>
+
+<body>
+<!-- Navbar goes here -->
+<div class="row">
+    <nav th:replace="/fragments/header :: header"></nav>
+</div>
+
+<div class="container">
+    <div class="valign-wrapper row">
+        <div class="col card hoverable s10 pull-s1 m8 pull-m2 l6 pull-l3">
+            <form method="POST" th:action="@{/user/modify/{field_type}(field_type=${fieldType})}"
+                  th:object="${singleInfo}" id="loginForm">
+                <div class="card-content">
+                    <span class="card-title center-align" style="color:#dd2c00;">Aggiungi commento</span>
+
+
+                    <!--<div id="errorMessage" class="card-panel card-error" th:if="${valueError}">-->
+                    <!--<span class="card-title center-align" th:text="${valueError}">-->
+                    <!--<i class="material-icons prefix input-logo">error</i>-->
+                    <!--</span>-->
+                    <!--</div>-->
+
+                    <div class="row">
+                        <div class="input-field col s12" style="color: #dd2c00;">
+                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                            <label for="textarea1" style="color: #dd2c00;">Commento</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action center-align">
+                    <a
+                            class="btn btn-large waves-effect waves-light deep-orange accent-4"
+                            th:href="@{/user/info}"
+                    >
+                        Annulla
+                        <i class="material-icons right">arrow_back</i>
+                    </a>
+                    <button
+                            class="btn btn-large waves-effect waves-light deep-orange accent-4"
+                            type="submit"
+                            name="action"
+                    >
+                        Commenta
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Compiled and minified JavaScript -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>

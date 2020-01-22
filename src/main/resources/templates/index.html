@@ -1,10 +1,8 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css"
+          th:href="@{/css/materialize.min.css}" media="screen,projection"/>
     <link
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"
@@ -23,6 +21,7 @@
         color: white;
         background-color: #dd2c00;
       }
+
 
 
     </style>
@@ -95,6 +94,7 @@
       $(document).ready(function() {
         $(".slider").slider({ full_width: true });
       });
+
 
 
 </script>

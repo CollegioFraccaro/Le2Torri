@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   final String[] PATH_PERMITTED = new String[] {
           "/", "/index.html", "/index", "/storia",
           "/resources/**", "/images/**", "/static/**",
-          "/register", "/info"
+          "/register", "/info", "/css/**", "/bacheca", "/comment/post", "/write/post"
   };
 
   final String[] PATH_AUTHENTICATED = new String[] {

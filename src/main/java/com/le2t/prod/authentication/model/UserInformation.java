@@ -9,9 +9,18 @@ public class UserInformation {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "id")
   private Long id;
+
+  @Column(name = "phone_number")
   private String phoneNumber;
+
+  @Column(name = "work_position")
   private String workPosition;
+
+  @Column(name = "linkedin_profile")
   private String linkedinProfile;
-  private String sotry;
+
+  @Column(name = "story")
+  private String story;
 }

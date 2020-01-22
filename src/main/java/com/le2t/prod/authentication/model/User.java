@@ -16,15 +16,30 @@ public class User implements UserDetails {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "unique_id")
   private Long uniqueId;
 
+  @Column(name = "username")
   private String username;
+
+  @Column(name = "password")
   private String password;
+
+  @Column(name = "avatar")
   private String avatar;
+
+  @Column(name = "name")
   private String name;
+
+  @Column(name = "surname")
   private String surname;
+
+  @Column(name = "email")
   private String email;
+  @Column(name = "enable")
   private boolean enable;
+
+  @Column(name = "role")
   private String role;
 
   @OneToOne(cascade = CascadeType.ALL)

@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    <link type="text/css" rel="stylesheet" href="../../static/css/materialize.min.css"
+          th:href="@{/css/materialize.min.css}" media="screen,projection"/>
     <link
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"
-    />
+    >
 
     <style>
       .slider .indicators .indicator-item.active {
@@ -33,64 +31,67 @@
         color: #dd2c00 !important;
         background-color: white !important;
       }
+
     </style>
 </head>
 <body>
-<div >
-<nav>
-    <div class="nav-wrapper deep-orange accent-4">
-        <a th:href="@{/}" class="brand-logo">Le2Torri</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#" th:href="@{/}">Home</a></li>
-            <li><a th:href="@{/storia}">Storia</a></li>
-            <li sec:authorize="isAuthenticated()"><a th:href="@{/calendar}">Calendario</a></li>
-            <li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/validate/account}">Pannello Admin</a></li>
-            <li>
-                <a sec:authorize="!(isAuthenticated())"
-                   class="waves-effect waves-light btn btn-login"
-                   th:href="@{/login}"
-                ><i class="material-icons right">vpn_key</i>Accedi</a
-                >
-                <a sec:authorize="isAuthenticated()" th:href="@{/user/info}">
-                    <img  class="circle responsive-img"
-                         th:src="@{images/empty_avatar.png}"/>
-                </a>
-            </li>
-            <li sec:authorize="isAuthenticated()">
-                <a th:href="@{/logout}">
-                    <i class="material-icons">exit_to_app</i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<ul class="sidenav" id="mobile-demo">
-    <li><a href="#" th:href="@{/}">Home</a></li>
-    <li><a th:href="@{/storia}">Storia</a></li>
-    <li sec:authorize="isAuthenticated()"><a th:href="@{/calendar}">Calendario</a></li>
-    <li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/validate/account}">Pannello Admin</a></li>
-    <li>
-        <a sec:authorize="!(isAuthenticated())"
-           class="waves-effect waves-light btn btn-login-sidenav"
-           th:href="@{/login}"
-        ><i class="material-icons right">vpn_key</i>Accedi</a
-        >
-        <a sec:authorize="isAuthenticated()" th:href="@{/user/info}">
-            <img  class="circle responsive-img"
-                  th:src="@{images/empty_avatar.png}"/>
-        </a>
-    </li>
-    <li sec:authorize="isAuthenticated()">
-        <a th:href="@{/logout}">
-            <i class="material-icons">exit_to_app</i>
-        </a>
-    </li>
-</ul>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<div>
+    <nav>
+        <div class="nav-wrapper deep-orange accent-4">
+            <a th:href="@{/}" class="brand-logo">Le2Torri</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#" th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/storia}">Storia</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/calendar}">Calendario</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/bacheca}">Bacheca</a></li>
+                <li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/validate/account}">Pannello Admin</a></li>
+                <li>
+                    <a sec:authorize="!(isAuthenticated())"
+                       class="waves-effect waves-light btn btn-login"
+                       th:href="@{/login}"
+                    ><i class="material-icons right">vpn_key</i>Accedi</a
+                    >
+                    <a sec:authorize="isAuthenticated()" th:href="@{/user/info}">
+                        <img class="circle responsive-img"
+                             th:src="@{images/empty_avatar.png}"/>
+                    </a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a th:href="@{/logout}">
+                        <i class="material-icons">exit_to_app</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="#" th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/storia}">Storia</a></li>
+        <li sec:authorize="isAuthenticated()"><a th:href="@{/calendar}">Calendario</a></li>
+        <li sec:authorize="isAuthenticated()"><a th:href="@{/bacheca}">Bacheca</a></li>
+        <li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/validate/account}">Pannello Admin</a></li>
+        <li>
+            <a sec:authorize="!(isAuthenticated())"
+               class="waves-effect waves-light btn btn-login-sidenav"
+               th:href="@{/login}"
+            ><i class="material-icons right">vpn_key</i>Accedi</a
+            >
+            <a sec:authorize="isAuthenticated()" th:href="@{/user/info}">
+                <img class="circle responsive-img"
+                     th:src="@{images/empty_avatar.png}"/>
+            </a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/logout}">
+                <i class="material-icons">exit_to_app</i>
+            </a>
+        </li>
+    </ul>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
       document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, options);
@@ -105,7 +106,8 @@
   $(document).ready(function(){
     $('.sidenav').sidenav();
   });
-</script>
+
+    </script>
 </div>
 </body>
 </html>

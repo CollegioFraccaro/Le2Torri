@@ -4,11 +4,9 @@
 <head>
     <title>Bacheca</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="../../static/css/materialize.min.css"
+          th:href="@{/css/materialize.min.css}" media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         @media screen and (max-width: 660px) {
             .calendar-small {
@@ -37,15 +35,6 @@
             color: #dd2c00;
         }
         .footer-comment {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background-color: #dd2c00;
-            color: white;
-            text-align: center;
-}
-        .footer-comments {
             position: fixed;
             left: 0;
             bottom: 0;
@@ -159,7 +148,7 @@
     </div>
 </div>
 
-<a class="waves-effect waves-light btn-large footer-comments" style="background-color: #dd2c00;"><i class="material-icons right">insert_comment</i>Commenta</a>
+<a class="waves-effect waves-light btn-large footer-comment" style="background-color: #dd2c00;"><i class="material-icons right">insert_comment</i>Commenta</a>
 
 </div>
 </html>
