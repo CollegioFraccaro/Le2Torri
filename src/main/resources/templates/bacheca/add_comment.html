@@ -56,8 +56,8 @@
 <div class="container">
     <div class="valign-wrapper row">
         <div class="col card hoverable s10 pull-s1 m8 pull-m2 l6 pull-l3">
-            <form method="POST" th:action="@{/user/modify/{field_type}(field_type=${fieldType})}"
-                  th:object="${singleInfo}" id="loginForm">
+            <form method="POST" th:action="@{/write/comment/{post_id}(post_id=${post_id})}"
+                  th:object="${write_comment}" id="loginForm">
                 <div class="card-content">
                     <span class="card-title center-align" style="color:#dd2c00;">Aggiungi commento</span>
 
@@ -70,7 +70,7 @@
 
                     <div class="row">
                         <div class="input-field col s12" style="color: #dd2c00;">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                            <textarea id="textarea1" class="materialize-textarea" th:field="*{description}"></textarea>
                             <label for="textarea1" style="color: #dd2c00;">Commento</label>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                 <div class="card-action center-align">
                     <a
                             class="btn btn-large waves-effect waves-light deep-orange accent-4"
-                            th:href="@{/user/info}"
+                            th:href="@{/bacheca}"
                     >
                         Annulla
                         <i class="material-icons right">arrow_back</i>

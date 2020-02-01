@@ -30,14 +30,14 @@ public class PostRepositoryTest {
 
     Post post1 = Post.builder()
             .active(true)
-            .comments(Collections.emptySet())
+            .comments(Collections.emptyList())
             .description("post_1")
             .publicationTime(Instant.now())
             .build();
 
     Post post2 = Post.builder()
             .active(false)
-            .comments(Collections.emptySet())
+            .comments(Collections.emptyList())
             .description("post_2")
             .publicationTime(Instant.now())
             .build();

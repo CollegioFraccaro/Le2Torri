@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @Entity
+@Table(name = "users")
 public class User implements UserDetails {
 
   private static final long serialVersionUID = 1L;
@@ -36,6 +37,7 @@ public class User implements UserDetails {
 
   @Column(name = "email")
   private String email;
+  
   @Column(name = "enable")
   private boolean enable;
 

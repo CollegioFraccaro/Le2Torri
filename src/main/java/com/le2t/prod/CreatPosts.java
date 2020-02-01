@@ -24,18 +24,22 @@ public class CreatPosts implements CommandLineRunner {
   @Override
   public void run(String... args) {
 
-    Comment comment1 = Comment.builder()
+/*    Comment comment1 = Comment.builder()
             .active(true)
             .description("ciao anche a te!")
             .publicationTime(Instant.now())
-            .username("Josh")
+            .name("Josh")
+            .surname("Hidger")
+            .username("Heideger")
             .build();
 
     Comment comment2 = Comment.builder()
             .active(true)
             .description("Ri-ciao")
             .publicationTime(Instant.now())
-            .username("Paolo")
+            .username("Bitta")
+            .name("Paolo")
+            .surname("Rossi")
             .build();
 
     Set<Comment> comments = new HashSet<>();
@@ -52,6 +56,6 @@ public class CreatPosts implements CommandLineRunner {
             .comments(comments)
             .build();
 
-    postRepository.save(post);
+    postRepository.save(post);*/
   }
 }

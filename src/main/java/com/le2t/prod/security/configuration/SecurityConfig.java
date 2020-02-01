@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   final String[] PATH_AUTHENTICATED = new String[] {
           "/login", "/register", "/index", "/loginError",
-          "/calendar", "/validate/**", "/user/**"
+          "/calendar", "/validate/**", "/user/**", "/resources/**", "/images/**", "/static/**"
   };
 
   @Bean

@@ -39,6 +39,7 @@
 
 
 
+
     </style>
 </head>
 <body>
@@ -51,42 +52,10 @@
 <div class="container">
     <div class="row" style="margin-top:5%;">
         <div class="col">
-            <a class="btn-floating btn-large waves-effect waves-light deep-orange accent-4" th:href="@{/write/post}"><i class="material-icons">add</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light deep-orange accent-4" th:href="@{/write/post}"><i
+                    class="material-icons">add</i></a>
         </div>
         <div class="col" style="margin-left: 5%;"><p id="write-post">Scrivi un post</p></div>
-    </div>
-
-
-    <div class="row">
-        <div class="col l12 m12 s12">
-            <div class="card-panel" style="padding-bottom:40px;">
-                <div class="row">
-                    <div class="col">
-                        <img src="../empty_avatar.png" th:src="@{images/empty_avatar.png}"
-                             class="circle responsive-img"/>
-                    </div>
-                    <div class="col">
-                        <h5 class="color-name">Luca Rossi (Scherzo)</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <h6>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis
-                            suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit
-                            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat
-                            cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
-                    </div>
-                </div>
-                <div class="col s6 m8 l9"><span style="color: #dd2c00;">20/10/2018 21:30</span></div>
-                <div class="col">
-                    <a th:href="@{/comment/post}">
-                        <span class="badge deep-orange accent-4" style="color: white;">comment 4</span>
-                        <i class="material-icons" style="color: #dd2c00;">comment</i>
-                    </a></div>
-
-            </div>
-        </div>
     </div>
 
     <div class="row" th:each="post : ${posts}">
@@ -98,7 +67,8 @@
                              class="circle responsive-img"/>
                     </div>
                     <div class="col">
-                        <h5 class="color-name" th:text="${post.name + ' ' +  post.surname + ' (' + post.username + ')' }"></h5>
+                        <h5 class="color-name"
+                            th:text="${post.name + ' ' +  post.surname + ' (' + post.username + ')' }"></h5>
                     </div>
                 </div>
                 <div class="row">
@@ -110,8 +80,9 @@
                 <div class="col s6 m8 l9"><span style="color: #dd2c00;" th:text="${post.publicationTime}"></span></div>
                 <div class="col">
                     <!-- concatenere espressione in href per trovare commenti del post -->
-                    <a th:href="@{/comment/post}">
-                        <span class="badge deep-orange accent-4" style="color: white;" th:text="'comment ' + ${#lists.size(post.comments)}"></span>
+                    <a th:href="@{/comment/post/{post_id}(post_id=${post.uniqueId})}">
+                        <span class="badge deep-orange accent-4" style="color: white;"
+                              th:text="'comment ' + ${#lists.size(post.comments)}"></span>
                         <i class="material-icons" style="color: #dd2c00;">comment</i>
                     </a></div>
 
