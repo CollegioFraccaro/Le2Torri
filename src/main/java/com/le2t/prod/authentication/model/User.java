@@ -77,6 +77,10 @@ public class User implements UserDetails {
     return name;
   }
 
+  public String getRole() {
+    return role;
+  }
+
   public String getSurname() {
     return surname;
   }

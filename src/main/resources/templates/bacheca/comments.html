@@ -100,12 +100,17 @@
         <div class="col offset-l3 l9 offset-m3 m9 offset-s2 s10">
             <div class="card-panel" style="padding-bottom:40px;">
                 <div class="row">
-                    <div class="col">
+                    <div class="col s2">
                         <img src="../empty_avatar.png" class="circle responsive-img"/>
                     </div>
-                    <div class="col">
+                    <div class="col s9">
                         <h5 style="color: #dd2c00;"
                             th:text="${comment.name + ' ' +  comment.surname + ' (' + comment.username + ')' }"></h5>
+                    </div>
+                    <div class="col s1" >
+                        <a th:href="@{/{post_id}/{comment_id}/delete(post_id=${post.uniqueId}, comment_id=${comment.uniqueId})}">
+                            <i class="material-icons" style="color: #dd2c00;">clear</i>
+                        </a>
                     </div>
                 </div>
                 <div class="row">

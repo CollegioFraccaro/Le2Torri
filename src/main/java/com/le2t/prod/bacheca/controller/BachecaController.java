@@ -6,6 +6,7 @@ import com.le2t.prod.bacheca.model.Post;
 import com.le2t.prod.bacheca.model.WriteComment;
 import com.le2t.prod.bacheca.model.WritePost;
 import com.le2t.prod.bacheca.service.BachecaService;
+import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 //TODO: aggiungere tutti i controlli per i parametri che arrivano da front-end
 
@@ -34,6 +36,8 @@ public class BachecaController {
   public String getBacheca(Model model) {
 
     List<Post> posts = bachecaService.getActivePosts();
+    posts.forEach(Post::removeDisableComment);
+
     model.addAttribute("posts", posts);
     return "bacheca/bacheca";
   }
@@ -42,6 +46,8 @@ public class BachecaController {
   public String getCommentPost(@PathVariable("post_id") Long postId, Model model) {
 
     Post post = bachecaService.findPostById(postId);
+    post.removeDisableComment();
+
     model.addAttribute("post", post);
     return "bacheca/comments";
   }
@@ -107,6 +113,26 @@ public class BachecaController {
     post.setComments(comments);
     bachecaService.savePost(post);
 
+    return getCommentPost(postId, model);
+  }
+
+  @GetMapping("/{post_id}/{comment_id}/delete")
+  public String deleteComment(@PathVariable("comment_id") Long commentId,
+                              @PathVariable("post_id") Long postId,
+                              @AuthenticationPrincipal User user,
+                              Model model) {
+    //TODO: creare messaggio errore
+    if ( "ROLE_ADMIN".equals(user.getRole()) ) {
+      Post post = bachecaService.findPostById(postId);
+
+      post.getComments().forEach(comment -> {
+        if (comment.isActive() && comment.getUniqueId().equals(commentId)) {
+          comment.setActive(false);
+        }
+      });
+
+      bachecaService.savePost(post);
+    }
     return getCommentPost(postId, model);
   }
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Data
@@ -53,5 +54,9 @@ public class Post {
       comments = new ArrayList<>();
       comments.add(comment);
     }
+  }
+
+  public void removeDisableComment() {
+    comments.removeIf(comment -> ! comment.isActive());
   }
 }
