@@ -6,7 +6,6 @@ import com.le2t.prod.bacheca.model.Post;
 import com.le2t.prod.bacheca.model.WriteComment;
 import com.le2t.prod.bacheca.model.WritePost;
 import com.le2t.prod.bacheca.service.BachecaService;
-import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 //TODO: aggiungere tutti i controlli per i parametri che arrivano da front-end
 
