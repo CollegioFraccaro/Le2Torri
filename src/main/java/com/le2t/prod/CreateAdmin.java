@@ -22,12 +22,14 @@ public class CreateAdmin implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-/*    UserInformation userInformation = new UserInformation();
+/*    userRepository.deleteAll();
+    UserInformation userInformation = new UserInformation();
     userInformation.setLinkedinProfile("nic-admin");
     userInformation.setPhoneNumber("33344564");
     User user = new User("admin", passwordEncoder.encode("plinio"), "plinioFraccaro",
             "plinio", "fraccaro", "plinio@prova.it", true, "ROLE_ADMIN", userInformation);
 
-    userRepository.save(user);*/
+    userRepository.save(user);
+    System.out.println(userRepository.findByUsername("admin").getUsername());*/
   }
 }

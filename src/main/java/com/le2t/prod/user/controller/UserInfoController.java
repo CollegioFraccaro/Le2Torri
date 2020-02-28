@@ -27,6 +27,16 @@ public class UserInfoController {
     return "user_info";
   }
 
+  @GetMapping("/user/info/{username}")
+  public String getUserInfoReadOnly(Model model,
+                            @PathVariable("username") String username) {
+
+    User user = userRepository.findByUsername(username);
+    model.addAttribute("user", user);
+
+    return "user_info_view";
+  }
+
   @GetMapping("/user/modify/{fieldName}")
   public String getModifyUserInfo(Model model,
                                   @PathVariable("fieldName") String fieldName) {

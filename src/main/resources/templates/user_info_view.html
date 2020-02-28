@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User info view</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css"
+          th:href="@{/css/materialize.min.css}" media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        span.badge {
+            padding-right: 10%;
+        }
+        .secondary-content {
+            color: #dd2c00 !important;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="row">
+    <nav th:replace="fragments/header :: header"></nav>
+</div>
+<div class="container">
+    <div class="valign-wrapper row">
+        <div class="col card hoverable s11 pull-s1 m10 pull-m1 l8 pull-l2">
+            <div class="card-content">
+                <span class="card-title">Informazioni personali</span>
+                <ul class="collection">
+                    <li class="collection-item avatar"><img src="../static/images/empty_avatar.png"
+                                                            th:src="@{images/empty_avatar.png}" class="circle">
+                        <span class="title">Immagine profilo</span>
+                    </li>
+                    <li class="collection-item"><span class="badge" th:text="${user.name}"></span>Nome
+                    </li>
+                    <li class="collection-item"><span class="badge" th:text="${user.surname}"></span>Cognome
+                    </li>
+                    <li class="collection-item"><span class="badge" th:text="${user.avatar}"></span>Soprannome
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- TODO: aggiunta possibilità contatto -->
+    <div class="valign-wrapper row">
+        <div class="col card hoverable s11 pull-s1 m10 pull-m1 l8 pull-l2">
+            <div class="card-content">
+                <span class="card-title">Informazioni di contatto</span>
+                <ul class="collection">
+                    <li class="collection-item"><span class="badge" th:text="${user.email}"></span>Email
+                    </li>
+                    <li class="collection-item"><span class="badge"
+                                                      th:text="${user.userInformation.phoneNumber}"></span>Telefono
+                    </li>
+                    <li class="collection-item"><span class="badge"
+                                                      th:text="${user.userInformation.linkedinProfile}"></span>Linkedin
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

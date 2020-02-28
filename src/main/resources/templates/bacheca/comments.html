@@ -49,6 +49,7 @@
 
 
 
+
     </style>
 </head>
 <body>
@@ -61,7 +62,8 @@
 <div class="container">
     <div class="row" style="margin-top:5%;">
         <div class="col">
-            <a class="btn-floating btn-large waves-effect waves-light deep-orange accent-4" th:href="@{/bacheca}"><i class="material-icons">arrow_back</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light deep-orange accent-4" th:href="@{/bacheca}"><i
+                    class="material-icons">arrow_back</i></a>
         </div>
         <div class="col" style="margin-left: 5%;"><p id="write-post">Torna alla bacheca</p></div>
     </div>
@@ -75,8 +77,10 @@
                         <img src="../empty_avatar.png" class="circle responsive-img"/>
                     </div>
                     <div class="col">
+                        <a th:href="@{/user/info/{username}(username=${post.username})}" >
                         <h5 id="color-name"
                             th:text="${post.name + ' ' +  post.surname + ' (' + post.username + ')' }"></h5>
+                        </a>
                     </div>
                 </div>
                 <div class="row">
@@ -90,7 +94,6 @@
                         <i class="material-icons" style="color: #dd2c00;">comment</i>
                         <i class="material-icons" style="color: #dd2c00;">sync</i>
                     </a></div>
-
             </div>
         </div>
     </div>
@@ -104,10 +107,12 @@
                         <img src="../empty_avatar.png" class="circle responsive-img"/>
                     </div>
                     <div class="col s9">
+                        <a th:href="@{/user/info/{username}(username=${comment.username})}" >
                         <h5 style="color: #dd2c00;"
                             th:text="${comment.name + ' ' +  comment.surname + ' (' + comment.username + ')' }"></h5>
+                        </a>
                     </div>
-                    <div class="col s1" >
+                    <div class="col s1">
                         <a th:href="@{/{post_id}/{comment_id}/delete(post_id=${post.uniqueId}, comment_id=${comment.uniqueId})}">
                             <i class="material-icons" style="color: #dd2c00;">clear</i>
                         </a>
@@ -123,34 +128,35 @@
         </div>
     </div>
 
-   <!-- <div class="row">
-        <div class="col l9 m9 s10">
-            <div class="card-panel" style="padding-bottom:40px;">
-                <div class="row">
-                    <div class="col">
-                        <img src="../empty_avatar.png" class="circle responsive-img"/>
-                    </div>
-                    <div class="col">
-                        <h5 style="color: #dd2c00;">Luca Rossi (Scherzo)</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <h6>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis
-                            suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit
-                            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat
-                            cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
-                    </div>
-                </div>
-                <div class="col s9 m10 l10"><span style="color: #dd2c00;">20/10/2018 21:30</span></div>
-            </div>
-        </div>
-    </div>
-</div> -->
+    <!-- <div class="row">
+         <div class="col l9 m9 s10">
+             <div class="card-panel" style="padding-bottom:40px;">
+                 <div class="row">
+                     <div class="col">
+                         <img src="../empty_avatar.png" class="circle responsive-img"/>
+                     </div>
+                     <div class="col">
+                         <h5 style="color: #dd2c00;">Luca Rossi (Scherzo)</h5>
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="col">
+                         <h6>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore
+                             et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis
+                             suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit
+                             in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat
+                             cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
+                     </div>
+                 </div>
+                 <div class="col s9 m10 l10"><span style="color: #dd2c00;">20/10/2018 21:30</span></div>
+             </div>
+         </div>
+     </div>
+ </div> -->
 
-<a class="waves-effect waves-light btn-large footer-comment" style="background-color: #dd2c00;" th:href="@{/write/comment/{post_id}(post_id=${post.uniqueId})}"><i
-        class="material-icons right">insert_comment</i>Commenta</a>
+    <a class="waves-effect waves-light btn-large footer-comment" style="background-color: #dd2c00;"
+       th:href="@{/write/comment/{post_id}(post_id=${post.uniqueId})}"><i
+            class="material-icons right">insert_comment</i>Commenta</a>
 
 </div>
 </html>

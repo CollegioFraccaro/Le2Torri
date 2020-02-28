@@ -61,9 +61,10 @@
                              class="circle responsive-img"/>
                     </div>
                     <div class="col s9">
+                        <a th:href="@{/user/info/{username}(username=${post.username})}" >
                         <h5 class="color-name"
                             th:text="${post.name + ' ' +  post.surname + ' (' + post.username + ')' }"></h5>
-
+                        </a>
                     </div>
                     <div class="col s1" >
                         <a th:href="@{/comment/post/{post_id}(post_id=${post.uniqueId})}">
