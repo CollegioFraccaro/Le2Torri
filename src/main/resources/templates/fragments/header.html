@@ -53,8 +53,9 @@
                     ><i class="material-icons right">vpn_key</i>Accedi</a
                     >
                     <a sec:authorize="isAuthenticated()" th:href="@{/user/info}">
-                        <img class="circle responsive-img"
-                             th:src="@{images/empty_avatar.png}"/>
+                        <!--<img class="circle responsive-img"
+                             th:src="@{images/empty_avatar.png}"/> -->
+                        <i class="material-icons">person</i>
                     </a>
                 </li>
                 <li sec:authorize="isAuthenticated()">
@@ -78,8 +79,9 @@
             ><i class="material-icons right">vpn_key</i>Accedi</a
             >
             <a sec:authorize="isAuthenticated()" th:href="@{/user/info}">
-                <img class="circle responsive-img"
-                     th:src="@{images/empty_avatar.png}"/>
+                <!--<img class="circle responsive-img"
+                     th:src="@{images/empty_avatar.png}"/> -->
+                <i class="material-icons">person</i>
             </a>
         </li>
         <li sec:authorize="isAuthenticated()">
