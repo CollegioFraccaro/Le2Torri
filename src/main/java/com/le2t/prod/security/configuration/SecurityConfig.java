@@ -20,15 +20,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   @Autowired
   private UserDetailsService userDetailsService;
 
-  final String[] PATH_PERMITTED = new String[] {
+  private static final String[] PATH_PERMITTED = new String[] {
           "/", "/index.html", "/index", "/storia",
-          "/resources/**", "/images/**", "/static/**",
-          "/register", "/info", "/css/**", "/bacheca", "/comment/post", "/write/post"
-  };
-
-  final String[] PATH_AUTHENTICATED = new String[] {
-          "/login", "/register", "/index", "/loginError",
-          "/calendar", "/validate/**", "/user/**", "/resources/**", "/images/**", "/static/**"
+          "**/resources/**", "**/images/**", "**/static/**",
+          "/register", "/login"
   };
 
   @Bean
@@ -49,6 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     httpSecurity
             .formLogin()
             .loginPage("/login")
+            .successForwardUrl("/")
             .failureUrl("/loginError")
 
             .and()
@@ -59,9 +55,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .authorizeRequests()
             .antMatchers(PATH_PERMITTED).permitAll()
-            .antMatchers(HttpMethod.GET, PATH_AUTHENTICATED).permitAll()
             .antMatchers("/validate/**").hasAuthority("ROLE_ADMIN")
-            .anyRequest().authenticated();
+            .anyRequest().authenticated()
+            .and().csrf();
 
   }
 

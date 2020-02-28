@@ -46,6 +46,8 @@ public class Post {
   @JoinColumn(name = "comments")
   List<Comment> comments;
 
+
+
   public void addComment(Comment comment) {
 
     if (comments != null) {
